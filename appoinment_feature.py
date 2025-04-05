@@ -50,20 +50,22 @@ def cancel_appt(patient_name, doctor_name, date, time):
     except ValueError:
         return 'Use a 24 hour time format please.'
     
+    time_str = time.strftime('%H:%M')
+    
     cursor.execute('''
         SELECT * FROM Appointments
         WHERE PatientName=? AND DoctorName=? AND AppointmentDate=? AND AppointmentTime=?
-    ''', (patient_name, doctor_name, date, time.strftime('%H:%M')))
+    ''', (patient_name, doctor_name, date, time_str))
 
     if not cursor.fetchone():
         return 'Could not find an appointment to cancel'
     
     cursor.execute('''
         DELETE FROM Appointments
-        WHERE PatientName=? AND AppointmentDate=? AND AppointmentTime=?
-    ''', (patient_name, doctor_name, date, time.strftime('%H:%M')))
+        WHERE PatientName=? AND DoctorName=? AND AppointmentDate=? AND AppointmentTime=?
+    ''', (patient_name, doctor_name, date, time_str))
     conn.commit()
-    return f"Your appointment for {patient_name} at {time.strftime('%H:%M')} on {date} has been cancelled."
+    return f"Your appointment for {patient_name} at {time_str} on {date} has been cancelled."
 
 def update_appt(patient_name, doctor_name, old_date, old_time, new_date, new_time):
     try:
@@ -98,7 +100,9 @@ def update_appt(patient_name, doctor_name, old_date, old_time, new_date, new_tim
 # print(update_appointment('John Smith', 'DR. R', '2025-04-06', '10:00', '2025-04-09', '11:30'))
     
 def view_all_appts(): #Data Analytics feature
-    return 'Here are all the current appointments.'
+    print('Here are all the appointments.')
+    cursor.execute("SELECT * FROM Appointments")
+    return cursor.fetchall()
     
 
 
