@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="styles.css">
+=======
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
     <!-- Load an icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Register</title>
@@ -12,16 +16,27 @@
     <header>
         <h1>NY Health Scheduler</h1>
         <div class="topnav">
+<<<<<<< HEAD
+            <a href="home.html"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="login.html"><i class="fa fa-fw fa-user"></i>Login</a>
+            <a href="appointments.html"><i class="fa fa-fw fa-calendar"></i>Book Appointments</a>
+=======
             <a href="/home"><i class="fa fa-fw fa-home"></i>Home</a>
             <a href="/login"><i class="fa fa-fw fa-user"></i>Login</a>
             <a href="/appointments"><i class="fa fa-fw fa-calendar"></i>Book Appointments</a>
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
             <div class="dropdown">
                 <button class="dropbtn">Dashboard
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
+<<<<<<< HEAD
+                    <a href="patients.html"><i class="fa fa-fw fa-table"></i>Patient Dashboard</a>
+                    <a href="doctors.html"><i class="fa fa-user-md"></i>Doctor Dashboard</a>
+=======
                     <a href="/patients"><i class="fa fa-fw fa-table"></i>Patient Dashboard</a>
                     <a href="/doctors"><i class="fa fa-user-md"></i>Doctor Dashboard</a>
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
                 </div>
             </div>
         </div>
@@ -43,7 +58,11 @@
                 <button type="submit" class="registerbtn">Register</button>
             </div>
             <div class="container signin">
+<<<<<<< HEAD
                 <p>Already have an account? <a href="login.html">Sign in</a></p>
+=======
+                <p>Already have an account? <a href="/login">Sign in</a></p>
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
             </div>
         </form>
     </main>
@@ -54,9 +73,12 @@
         document.getElementById('registerForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
 
-            const username = document.getElementById('registerUsername').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            const username = document.getElementById('regUname').value;
+            console.log("regUname", regUname);
+            const password = document.getElementById('regPassword').value;
+            console.log("regPassword", regPassword);
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            console.log("confirmPassword", confirmPassword);
 
             // Check if passwords match
             if (password !== confirmPassword) {

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="styles.css">
+=======
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
     <!-- Load an icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login</title>
@@ -12,29 +16,45 @@
     <header>
         <h1>NY Health Scheduler</h1>
         <div class="topnav">
+<<<<<<< HEAD
+            <a href="home.html"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="login.html"><i class="fa fa-fw fa-user"></i>Login</a>
+            <a href="appointments.html"><i class="fa fa-fw fa-calendar"></i>Book Appointments</a>
+=======
             <a href="/home"><i class="fa fa-fw fa-home"></i>Home</a>
             <a href="/login"><i class="fa fa-fw fa-user"></i>Login</a>
             <a href="/appointments"><i class="fa fa-fw fa-calendar"></i>Book Appointments</a>
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
             <div class="dropdown">
                 <button class="dropbtn">Dashboard
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
+<<<<<<< HEAD
+                    <a href="patients.html"><i class="fa fa-fw fa-table"></i>Patient Dashboard</a>
+                    <a href="doctors.html"><i class="fa fa-user-md"></i>Doctor Dashboard</a>
+=======
                     <a href="/patients"><i class="fa fa-fw fa-table"></i>Patient Dashboard</a>
                     <a href="/doctors"><i class="fa fa-user-md"></i>Doctor Dashboard</a>
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
                 </div>
             </div>
         </div>
     </header>
-    <h2>Login</h2>
     <main>
         <form action="action_page.php" method="post" id="loginForm">
             <div class="container">
                 <h1>Login</h1>
                 <label for="username"><b>Username</b></label>
+<<<<<<< HEAD
                 <input type="text" placeholder="Enter Username" name="username" required>
                 <label for="password"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="password" required>
+=======
+                <input type="text" placeholder="Enter Username" name="username" id="username" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
                 <button type="submit">Login</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember">Remember me
@@ -44,7 +64,11 @@
                 <span class="password"><a href="#"> Forgot password?</a></span>
             </div>
             <div class="container register">
+<<<<<<< HEAD
                 <p>Don't have an account? <a href='register.html'>Register here</a></p>
+=======
+                <p>Don't have an account? <a href='/register'>Register here</a></p>
+>>>>>>> 0a7eb73e98d6989b701ed2b9f7deaa2d7db93996
             </div>
         </form>
     </main>
@@ -55,11 +79,13 @@
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
             const username = document.getElementById('username').value;
+            console.log("username", username);
             const password = document.getElementById('password').value;
+            console.log("password", password);
             // Simulate a login check
-            if (username == 'user1' && password == 'password1') {
+            if (username == 'admin' && password == 'admin123') {
                 // Redirect to appointments page on successful login
-                window.location.href = 'appointments.html';
+                window.location.href = '/appointments';
             } else {
                 alert('Invalid credentials! Please try again.');
             }
